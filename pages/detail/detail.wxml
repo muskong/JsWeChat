@@ -1,0 +1,15 @@
+<mp-loading show="{{loading}}"></mp-loading>
+<mp-cells title="{{story.Title}}">
+  <mp-cell>
+    <view>{{story.Content}}</view>
+  </mp-cell>
+  <mp-cell wx:for="{{story.StoryAttitude}}" wx:key="timeStamp" bindtap="btnLike" 
+  	data-storyid="{{item.StoryId}}"
+  	data-title="{{item.Title}}"
+	id="{{item.ID}}">
+    <view>{{item.Title}}</view>
+    <view slot="footer">
+      <mp-icon icon="like" color="black" size="{{25}}"></mp-icon>
+    </view>
+  </mp-cell>
+</mp-cells>

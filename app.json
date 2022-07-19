@@ -1,0 +1,50 @@
+{
+	"pages": [
+		"pages/story/story",
+		"pages/index/index",
+		"pages/logs/logs",
+		"pages/follow/follow",
+		"pages/detail/detail",
+		"pages/my/my"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": "社会事件",
+		"navigationBarTextStyle": "black"
+	},
+	"tabBar": {
+		"list": [
+			{
+				"pagePath": "pages/story/story",
+				"text": "社会",
+				"iconPath": "resources/icon/zhong.png",
+				"selectedIconPath": "resources/icon/zhong-selected.png"
+			},
+			{
+				"pagePath": "pages/follow/follow",
+				"text": "焦点",
+				"iconPath": "resources/icon/cong.png",
+				"selectedIconPath": "resources/icon/cong-selected.png"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"text": "设置",
+				"iconPath": "resources/icon/ren.png",
+				"selectedIconPath": "resources/icon/ren-selected.png"
+			}
+		]
+	},
+	"useExtendedLib": {
+		"weui": true
+	},
+	"style": "v2",
+	"usingComponents": {
+		"mp-icon": "weui-miniprogram/icon/icon",
+		"mp-actionSheet": "weui-miniprogram/actionsheet/actionsheet",
+		"mp-loading": "weui-miniprogram/loading/loading",
+		"mp-cells": "weui-miniprogram/cells/cells",
+		"mp-cell": "weui-miniprogram/cell/cell"
+	},
+	"sitemapLocation": "sitemap.json"
+}

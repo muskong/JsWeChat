@@ -1,0 +1,9 @@
+<!--pages/story.wxml-->
+<mp-loading show="{{loading}}"></mp-loading>
+<mp-cells title="这个社会需要绵薄之力">
+    <mp-cell hover="true" link="true" wx:for="{{stories}}" wx:key="timeStamp">
+        <navigator url="../detail/detail?storyId={{item.ID}}">
+        {{item.Title}}
+        </navigator>
+    </mp-cell>
+</mp-cells>

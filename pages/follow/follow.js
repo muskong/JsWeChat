@@ -1,18 +1,32 @@
 // pages/follow/follow.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    loading:false,
+    stories: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({loading: true})
+    var that = this
+    wx.request({
+      url: 'http://localhost:9985/story/user',
+      header: app.globalData.requestHeader,
+      success(res){
+        console.log(res, 'useruseruser')
+        that.setData({
+          stories: res.data.Data
+        })
+      }
+    })
+    this.setData({loading: false})
   },
 
   /**

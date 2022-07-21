@@ -29,7 +29,7 @@ App({
 	globalData: {
 		userInfo: null,
 		requestHeader: {
-			"x-auth-token": wx.getStorageSync('token')
+			"X-AUTH-TOKEN": wx.getStorageSync('token')
 		}
 	}
 })

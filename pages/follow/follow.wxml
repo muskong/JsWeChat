@@ -1,9 +1,36 @@
 <!--pages/follow/follow.wxml-->
 <mp-loading show="{{loading}}"></mp-loading>
 <mp-cells title="这个社会需要绵薄之力">
-    <mp-cell hover="true" link="true" wx:for="{{stories}}" wx:key="timeStamp">
-        <navigator url="../detail/detail?storyId={{item.ID}}">
-        {{item.Title}}
+    <mp-cell hover="true" wx:for="{{stories}}" wx:key="timeStamp">
+        <view slot="icon">{{item.Story.State}}</view>
+        <navigator url="../detail/detail?storyId={{item.Story.ID}}">
+            {{item.Story.Title}}
         </navigator>
+        <view slot="footer">{{item.State}}</view>
     </mp-cell>
 </mp-cells>
+
+<div class="weui-panel weui-panel_access">
+    <div class="weui-panel__hd">这个社会需要绵薄之力</div>
+    <div class="weui-panel__bd">
+        <a class="weui-media-box weui-media-box_appmsg" wx:for="{{stories}}" wx:key="timeStamp">
+            <div class="weui-media-box__hd">
+            {{item.State}}
+            </div>
+            <div class="weui-media-box__bd">
+                <strong class="weui-media-box__title"> {{item.Story.Title}} </strong>
+                <ul class="weui-media-box__info">
+                    <li class="weui-media-box__info__meta">{{item.StoryAttitude.Title}}</li>
+                    <li class="weui-media-box__info__meta">{{item.UpdatedAt.Time}}</li>
+                    <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.Story.State}}</li>
+                </ul>
+            </div>
+        </a>
+    </div>
+    <div class="weui-panel__ft">
+        <a href="javascript:" class="weui-cell weui-cell_active weui-cell_access weui-cell_link">
+            <span class="weui-cell__bd">查看更多</span>
+            <span class="weui-cell__ft"></span>
+        </a>
+    </div>
+</div>

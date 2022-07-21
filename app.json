@@ -1,9 +1,9 @@
 {
 	"pages": [
+		"pages/follow/follow",
 		"pages/story/story",
 		"pages/index/index",
 		"pages/logs/logs",
-		"pages/follow/follow",
 		"pages/detail/detail",
 		"pages/my/my"
 	],
@@ -44,7 +44,8 @@
 		"mp-actionSheet": "weui-miniprogram/actionsheet/actionsheet",
 		"mp-loading": "weui-miniprogram/loading/loading",
 		"mp-cells": "weui-miniprogram/cells/cells",
-		"mp-cell": "weui-miniprogram/cell/cell"
+        "mp-cell": "weui-miniprogram/cell/cell",
+        "mp-badge": "weui-miniprogram/badge/badge"
 	},
 	"sitemapLocation": "sitemap.json"
 }

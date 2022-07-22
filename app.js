@@ -1,12 +1,39 @@
-// app.js
-App({
-	onLaunch() {
-		// 展示本地存储能力
-		const logs = wx.getStorageSync('logs') || []
-		logs.unshift(Date.now())
-		wx.setStorageSync('logs', logs)
+require('utils/mixins.js');
 
-		const that = this
+const listeners = [];
+
+App({
+	globalData: {
+		theme: 'light', // dark
+		mode: '', // 模式(care：关怀模式)
+		userInfo: null,
+		requestHeader: {
+			"X-AUTH-TOKEN": wx.getStorageSync('token')
+		}
+	},
+	changeGlobalData(data) {
+		this.globalData = Object.assign({}, this.globalData, data);
+		listeners.forEach((listener) => {
+			listener(this.globalData);
+		});
+	},
+	watchGlobalDataChanged(listener) {
+		if (listeners.indexOf(listener) < 0) {
+			listeners.push(listener);
+		}
+	},
+	unWatchGlobalDataChanged(listener) {
+		const index = listeners.indexOf(listener);
+		if (index > -1) {
+			listeners.splice(index, 1);
+		}
+	},
+	onThemeChange(resp) {
+		this.changeGlobalData({
+			theme: resp.theme,
+		});
+	},
+	onLaunch() {
 		const token = wx.getStorageSync('token') || ''
 		if (token.length == 0) {
 			// 登录
@@ -26,10 +53,4 @@ App({
 			})
 		}
 	},
-	globalData: {
-		userInfo: null,
-		requestHeader: {
-			"X-AUTH-TOKEN": wx.getStorageSync('token')
-		}
-	}
 })

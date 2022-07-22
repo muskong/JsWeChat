@@ -1,15 +1,37 @@
 <mp-loading show="{{loading}}"></mp-loading>
-<mp-cells title="{{story.Title}}">
-  <mp-cell>
-    <view>{{story.Content}}</view>
-  </mp-cell>
-  <mp-cell wx:for="{{story.StoryAttitude}}" wx:key="timeStamp" bindtap="btnLike" 
-  	data-storyid="{{item.StoryId}}"
-  	data-title="{{item.Title}}"
-	id="{{item.ID}}">
-    <view>{{item.Title}}</view>
-    <view slot="footer">
-      <mp-icon icon="like" color="black" size="{{25}}"></mp-icon>
+<page-meta root-font-size="system" />
+<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+    <view class="weui-steps weui-steps_horizonal">
+        <view class="weui-steps__item">
+        </view>
+        <view class="weui-steps__item">
+        </view>
+        <view class="weui-steps__item">
+        </view>
+        <view class="weui-steps__item">
+        </view>
+        <view class="weui-steps__item weui-steps__item_success">
+        </view>
     </view>
-  </mp-cell>
-</mp-cells>
+    <view class="page__bd">
+        <view class="weui-article">
+            <view aria-role="heading" aria-level="4" class="weui-article__h2">{{story.Title}}</view>
+            <view class="weui-article__section">
+                <view class="weui-article__p">{{story.Content}}
+                </view>
+            </view>
+        </view>
+
+        <mp-cells>
+            <mp-cell wx:for="{{story.StoryAttitude}}" wx:key="timeStamp" bindtap="btnLike" data-storyid="{{item.StoryId}}" data-title="{{item.Title}}" id="{{item.ID}}">
+                <view>{{item.Title}}</view>
+                <view slot="footer">
+                    <mp-icon icon="like" color="black" size="{{25}}"></mp-icon>
+                </view>
+            </mp-cell>
+        </mp-cells>
+    </view>
+    <view class="page__ft" bindtap="changeTheme">
+        <image aria-label="weui logo" src="/resources/images/icon_footer.png" style="width: 84px; height: 19px;"></image>
+    </view>
+</view>

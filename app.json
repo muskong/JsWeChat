@@ -2,16 +2,14 @@
 	"pages": [
 		"pages/follow/follow",
 		"pages/story/story",
-		"pages/index/index",
-		"pages/logs/logs",
 		"pages/detail/detail",
 		"pages/my/my"
 	],
 	"window": {
-		"backgroundTextStyle": "light",
-		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "社会事件",
-		"navigationBarTextStyle": "black"
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#FFF"
 	},
 	"tabBar": {
 		"list": [
@@ -38,14 +36,21 @@
 	"useExtendedLib": {
 		"weui": true
 	},
+	"networkTimeout": {
+		"request": 10000,
+		"connectSocket": 10000,
+		"uploadFile": 10000,
+		"downloadFile": 10000
+	},
 	"style": "v2",
+	"debug": true,
 	"usingComponents": {
 		"mp-icon": "weui-miniprogram/icon/icon",
 		"mp-actionSheet": "weui-miniprogram/actionsheet/actionsheet",
 		"mp-loading": "weui-miniprogram/loading/loading",
 		"mp-cells": "weui-miniprogram/cells/cells",
-        "mp-cell": "weui-miniprogram/cell/cell",
-        "mp-badge": "weui-miniprogram/badge/badge"
+		"mp-cell": "weui-miniprogram/cell/cell",
+		"mp-badge": "weui-miniprogram/badge/badge"
 	},
 	"sitemapLocation": "sitemap.json"
 }

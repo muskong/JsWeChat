@@ -8,7 +8,7 @@ App({
 		mode: '', // 模式(care：关怀模式)
 		userInfo: null,
 		requestHeader: {
-			"X-AUTH-TOKEN": wx.getStorageSync('token')
+			"X-AUTH-TOKEN": wx.getStorageSync('token') || ''
 		}
 	},
 	changeGlobalData(data) {
@@ -47,7 +47,10 @@ App({
 						},
 						success(res) {
 							wx.setStorageSync('token', res.data.Token)
-						}
+            },
+          fail(err) {
+            console.log(err, 'user/wechat')
+          }
 					})
 				}
 			})
